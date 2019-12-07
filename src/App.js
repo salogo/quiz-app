@@ -1,10 +1,15 @@
 import React from "react";
 import "./App.css";
-
-import Layout from "./components/Layout";
+import LogIn from "./components/LogIn";
 
 function App() {
-  return <Layout />;
+  return (
+    <div className="App">
+      <header className="App-header">
+        <LogIn />
+      </header>
+    </div>
+  );
 }
 
 export default App;
