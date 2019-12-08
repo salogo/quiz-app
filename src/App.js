@@ -1,7 +1,6 @@
 import React ,{Component}from 'react';
 import './App.css';
-import LogIn from "./components/LogIn"
-//import { tsConstructorType } from '@babel/types';
+import LogIn from "./components/LogIn";
 import Home from "./components/Home";
 
 class App extends Component {
