@@ -1,12 +1,13 @@
 import React from "react";
-import {Form ,Button } from "react-bootstrap";
+import {Form ,Button, Card } from "react-bootstrap";
 
 
 
-const LogIn =()=> {
+const LogIn =({onRouteChange})=> {
     return (
        <div>
-<Form>
+         <Card style={{ width: '18rem' }}> 
+<Form onClick={()=>onRouteChange('Home')} >
   <Form.Group controlId="formBasicEmail">
     <Form.Label>Sgn-In</Form.Label>
     <Form.Control type="email" placeholder="Enter email" />
@@ -24,7 +25,7 @@ const LogIn =()=> {
     Log In
   </Button>
 </Form>
-
+</Card>
        </div>
     );
   }
