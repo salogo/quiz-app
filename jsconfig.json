@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "@/*": ["./*"],
+      "@Components/*": ["./components/*"],
+      "@Layouts/*": ["./components/Layouts/*"],
+      "@Routes/*": ["./routes/*"]
+    }
+  },
+  "exclude": ["node_modules", "**/node_modules/*"]
+}
