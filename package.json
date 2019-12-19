@@ -5,21 +5,28 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "@craco/craco": "^5.6.2",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "animate.css": "^3.7.2",
+    "animate.css-react": "^0.1.0",
     "bootstrap": "^4.4.1",
     "react": "^16.12.0",
     "react-bootstrap": "^1.0.0-beta.16",
     "react-dom": "^16.12.0",
-    "react-scripts": "3.3.0"
+    "react-router-bootstrap": "^0.25.0",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.3.0",
+    "react-transition-group": "^4.3.0"
   },
   "scripts": {
-    "dev": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "dev": "craco start",
+    "build": "craco build",
+    "test": "craco test",
     "eject": "react-scripts eject",
-    "code-lint": "eslint . --ext '.js' --cache"
+    "code-lint": "eslint . --ext '.js' --cache",
+    "lint": "eslint . --ext '.js' --fix"
   },
   "eslintConfig": {
     "root": true,
@@ -28,7 +35,42 @@
       "es6": true,
       "node": true
     },
-    "extends": ["react-app", "plugin:react/recommendede", "airbnb"],
+    "extends": [
+      "plugin:react/recommended",
+      "airbnb"
+    ],
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "paths": [
+            "src",
+            "src/components",
+            "src/routes",
+            "src/components/Layouts"
+          ]
+        },
+        "alias": {
+          "map": [
+            [
+              "@",
+              "/src"
+            ],
+            [
+              "@Components",
+              "./src/components"
+            ],
+            [
+              "@Layouts",
+              "./src/components/Layouts"
+            ],
+            [
+              "@Routes",
+              "./src/routes"
+            ]
+          ]
+        }
+      }
+    },
     "globals": {
       "Atomics": "readonly",
       "SharedArrayBuffur": "readonly"
@@ -38,26 +80,60 @@
       "ecmaFeeatures": {
         "js": true
       },
-      "ecmaVersion":  2018,
+      "ecmaVersion": 2018,
       "sourceType": "module"
     },
-    "plugins": ["react"],
+    "plugins": [
+      "react"
+    ],
     "rules": {
       "react/jsx-filename-extension": [
-        "warn", {
-          "extension": [".js", ".jsx"]
+        "warn",
+        {
+          "extensions": [
+            ".js",
+            ".jsx"
+          ]
         }
       ],
       "import/no-extraneous-dependencies": [
-        "error", {
+        "error",
+        {
           "devDependencies": true
         }
+      ],
+      "jsx-quotes": [
+        "error",
+        "prefer-single"
+      ],
+      "react/prop-types": [
+        "off"
       ]
     },
     "ignorePatterns": [
       "build",
       "node_modules",
       "node_modules.nosync"
+    ]
+  },
+  "prettier": {
+    "printWidth": 90,
+    "bracketSpacing": false,
+    "trailingComma": "es5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.+(js|jsx)": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.+(json|css|md)": [
+      "prettier --write",
+      "git add"
     ]
   },
   "browserslist": {
@@ -76,11 +152,17 @@
     "acorn-jsx": "^5.1.0",
     "eslint": "^6.7.2",
     "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-import": "^2.19.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-react-hooks": "^1.7.0",
+    "husky": "^3.1.0",
+    "lint-staged": "^9.5.0",
     "node-sass": "^4.13.0",
+    "prettier": "^1.19.1",
     "sass-loader": "^8.0.0",
     "tsutils": "^3.17.1"
   }
