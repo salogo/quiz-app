@@ -1,0 +1,15 @@
+# Ignore node_modules
+node_modules
+node_modules.nosync
+
+# Ignore not support files
+!.*.js
+.eslintrc.js
+jsconfig.json
+craco.config.js
+
+# Ignore some test files
+src/test/*     
+
+# Ignore serviceWorker
+serviceWorker.js
