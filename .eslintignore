@@ -9,7 +9,7 @@ jsconfig.json
 craco.config.js
 
 # Ignore some test files
-src/test/*     
+src/test/ 
 
 # Ignore serviceWorker
 serviceWorker.js

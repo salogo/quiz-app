@@ -1,9 +1,9 @@
 import React from 'react';
+import Navigation from '@Components/Navigation';
 
-import Navigation from '@Components/Layouts/Navigation';
-
+// eslint-disable-next-line react/prop-types
 const Header = () => (
-  <header>
+  <header style={{ marginBottom: '3.3rem' }}>
     <Navigation />
   </header>
 );
